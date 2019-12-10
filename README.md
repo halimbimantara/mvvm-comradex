@@ -34,6 +34,7 @@ This repository contains a detailed sample app that implements MVVM architecture
 5. AndroidDebugDatabase: https://github.com/amitshekhariitbhu/Android-Debug-Database
 6. Calligraphy: https://github.com/chrisjenx/Calligraphy
 7. Room: https://developer.android.com/topic/libraries/architecture/room.html
+8. Firebase Notification
 
 ### Concept reference resources:
 1. [Introduction to Dagger 2: Part 1](https://blog.mindorks.com/introduction-to-dagger-2-using-dependency-injection-in-android-part-1-223289c2a01b#.ki6nt86l6)
