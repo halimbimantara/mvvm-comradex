@@ -23,7 +23,7 @@
 
         <variable
             name="viewModel"
-            type="com.mindorks.framework.mvvm.ui.feed.opensource.OpenSourceViewModel" />
+            type="com.ideotekno.framework.mvvm.ui.feed.opensource.OpenSourceViewModel" />
 
     </data>
 

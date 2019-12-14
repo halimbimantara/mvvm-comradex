@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mindorks.framework.mvvm">
+    package="com.ideotekno.framework.mvvm">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MvvmApp"
+        android:name="com.ideotekno.framework.mvvm.MvvmApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,10 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.navigator.Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name="com.ideotekno.framework.mvvm.ui.navigator.MainNavigatorActivity"></activity>
+        <activity android:name="com.ideotekno.framework.mvvm.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,20 +23,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name="com.ideotekno.framework.mvvm.ui.login.LoginActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name="com.ideotekno.framework.mvvm.ui.main.MainActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ui.feed.FeedActivity"
+            android:name="com.ideotekno.framework.mvvm.ui.mainmenu.activity.features.MainMenuActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.ideotekno.framework.mvvm.ui.feed.FeedActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".ui.main.MainActivity">
+            android:parentActivityName="com.ideotekno.framework.mvvm.ui.main.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
+                android:value="com.ideotekno.framework.mvvm.ui.main.MainActivity" />
         </activity>
     </application>
 
