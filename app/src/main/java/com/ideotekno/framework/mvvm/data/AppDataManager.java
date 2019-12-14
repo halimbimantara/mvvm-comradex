@@ -36,10 +36,13 @@ import com.ideotekno.framework.mvvm.data.remote.ApiHeader;
 import com.ideotekno.framework.mvvm.data.remote.ApiHelper;
 import com.ideotekno.framework.mvvm.utils.AppConstants;
 import com.ideotekno.framework.mvvm.utils.CommonUtils;
+
 import io.reactivex.Observable;
 import io.reactivex.Single;
+
 import java.lang.reflect.Type;
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -118,7 +121,11 @@ public class AppDataManager implements DataManager {
 
     @Override
     public Single<BlogResponse> getBlogApiCall() {
-        return mApiHelper.getBlogApiCall();
+        return mApiHelper.getBlogApiCall().doAfterSuccess(response -> {
+
+        }).doOnError(error -> {
+
+        });
     }
 
     @Override

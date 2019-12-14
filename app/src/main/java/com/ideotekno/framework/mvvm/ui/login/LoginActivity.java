@@ -28,6 +28,8 @@ import com.ideotekno.framework.mvvm.databinding.ActivityAccountBinding;
 import com.ideotekno.framework.mvvm.databinding.ActivityLoginBinding;
 import com.ideotekno.framework.mvvm.ui.base.BaseActivity;
 import com.ideotekno.framework.mvvm.ui.main.MainActivity;
+import com.ideotekno.framework.mvvm.ui.mainmenu.activity.features.MainMenuActivity;
+
 import javax.inject.Inject;
 
 /**
@@ -80,7 +82,7 @@ public class LoginActivity extends BaseActivity<ActivityAccountBinding, LoginVie
 
     @Override
     public void openMainActivity() {
-        Intent intent = MainActivity.newIntent(LoginActivity.this);
+        Intent intent = MainMenuActivity.newIntent(LoginActivity.this);
         startActivity(intent);
         finish();
     }
