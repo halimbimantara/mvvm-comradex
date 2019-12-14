@@ -170,8 +170,7 @@
                     app:tabIndicatorColor="@color/md_yellow_400"
                     app:tabIndicatorHeight="3dp"
                     app:tabMode="fixed"
-                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-                    app:tabTextColor="@color/white" />
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"/>
 
             </com.google.android.material.appbar.AppBarLayout>
 

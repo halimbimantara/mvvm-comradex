@@ -2,10 +2,13 @@ package com.ideotekno.framework.mvvm.ui.mainmenu.activity.features;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
@@ -63,7 +66,14 @@ public class MainMenuActivity extends BaseActivity<MainHomeBinding, MainMenuView
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dataBinding = getViewDataBinding();
+        initToolbar();
         setUp();
+    }
+
+    private void initToolbar() {
+        mToolbar = dataBinding.Maintoolbar;
+        dataBinding.Maintoolbar.setTitle("");
+        setSupportActionBar(mToolbar);
     }
 
     private void setUp() {
@@ -73,10 +83,51 @@ public class MainMenuActivity extends BaseActivity<MainHomeBinding, MainMenuView
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setupViewPager(dataBinding.viewPager);
-        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(0).setIcon(R.drawable.ic_tab_terbaru));
-        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(1).setIcon(R.drawable.ic_tab_ditolak));
-        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(2).setIcon(R.drawable.ic_tab_disetujui));
-        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(3).setIcon(R.drawable.ic_tab_reschedule));
+        try {
+            TabLayout.Tab tab1 = dataBinding.tabLayout.getTabAt(0);
+            if (tab1 != null) {
+                tab1.setIcon(R.drawable.ic_tab_terbaru);
+                if (tab1.getIcon() != null) {
+                    tab1.getIcon().setColorFilter(ContextCompat.getColor(this, R.color.md_grey_200),
+                            PorterDuff.Mode.SRC_IN);
+                }
+            }
+            TabLayout.Tab tab2 = dataBinding.tabLayout.getTabAt(1);
+            if (tab2 != null) {
+                tab2.setIcon(R.drawable.ic_tab_ditolak);
+                if (tab2.getIcon() != null) {
+                    tab2.getIcon().setColorFilter(ContextCompat.getColor(this, R.color.md_grey_200),
+                            PorterDuff.Mode.SRC_IN);
+                }
+            }
+            TabLayout.Tab tab3 = dataBinding.tabLayout.getTabAt(2);
+            if (tab3 != null) {
+                tab3.setIcon(R.drawable.ic_tab_disetujui);
+                if (tab3.getIcon() != null) {
+                    tab3.getIcon().setColorFilter(ContextCompat.getColor(this, R.color.md_grey_200),
+                            PorterDuff.Mode.SRC_IN);
+                }
+            }
+            TabLayout.Tab tab4 = dataBinding.tabLayout.getTabAt(3);
+            if (tab4 != null) {
+                tab4.setIcon(R.drawable.ic_tab_reschedule);
+                if (tab4.getIcon() != null) {
+                    tab4.getIcon().setColorFilter(ContextCompat.getColor(this, R.color.md_grey_200),
+                            PorterDuff.Mode.SRC_IN);
+                }
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(0).setIcon(getResources().getDrawable(R.drawable.ic_tab_terbaru)));
+//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(1).setIcon(getResources().getDrawable(R.drawable.ic_tab_ditolak)));
+//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(2).setIcon(getResources().getDrawable(R.drawable.ic_tab_disetujui)));
+//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(3).setIcon(getResources().getDrawable(R.drawable.ic_tab_reschedule)));
+//
+
         dataBinding.viewPager.setOffscreenPageLimit(dataBinding.tabLayout.getTabCount());
         dataBinding.viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(dataBinding.tabLayout));
         dataBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -101,6 +152,7 @@ public class MainMenuActivity extends BaseActivity<MainHomeBinding, MainMenuView
     }
 
     void setupViewPager(ViewPager mViewPager) {
+        menuPagerAdapter.setCount(4);
         Fragment fragment1 = new MenuNotifBaruFragment();
         Fragment fragment2 = new MenuDisetujuiFragment();
         Fragment fragment3 = new MenuDitolakFragment();
@@ -110,8 +162,8 @@ public class MainMenuActivity extends BaseActivity<MainHomeBinding, MainMenuView
         menuPagerAdapter.addFragment(fragment2, "Ditolak");
         menuPagerAdapter.addFragment(fragment3, "Disetujui");
         menuPagerAdapter.addFragment(fragment4, "Reschedule");
-
-        menuPagerAdapter.setCount(4);
+        dataBinding.tabLayout.setupWithViewPager(mViewPager);
         mViewPager.setAdapter(menuPagerAdapter);
+
     }
 }

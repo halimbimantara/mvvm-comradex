@@ -136,6 +136,9 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:$rootProject.firebaseCore"
     implementation "com.google.firebase:firebase-messaging:$rootProject.firebaseVersion"
 
+
+    //timeline
+    implementation 'com.github.vipulasri:timelineview:1.1.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
