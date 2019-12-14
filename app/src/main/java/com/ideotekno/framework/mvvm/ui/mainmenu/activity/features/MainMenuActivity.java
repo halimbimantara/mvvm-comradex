@@ -121,13 +121,6 @@ public class MainMenuActivity extends BaseActivity<MainHomeBinding, MainMenuView
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(0).setIcon(getResources().getDrawable(R.drawable.ic_tab_terbaru)));
-//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(1).setIcon(getResources().getDrawable(R.drawable.ic_tab_ditolak)));
-//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(2).setIcon(getResources().getDrawable(R.drawable.ic_tab_disetujui)));
-//        dataBinding.tabLayout.addTab(dataBinding.tabLayout.getTabAt(3).setIcon(getResources().getDrawable(R.drawable.ic_tab_reschedule)));
-//
-
         dataBinding.viewPager.setOffscreenPageLimit(dataBinding.tabLayout.getTabCount());
         dataBinding.viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(dataBinding.tabLayout));
         dataBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.ideotekno.framework.mvvm.BR;
 import com.ideotekno.framework.mvvm.R;
 import com.ideotekno.framework.mvvm.ViewModelProviderFactory;
+import com.ideotekno.framework.mvvm.databinding.ActivityAccountBinding;
 import com.ideotekno.framework.mvvm.databinding.ActivityLoginBinding;
 import com.ideotekno.framework.mvvm.ui.base.BaseActivity;
 import com.ideotekno.framework.mvvm.ui.main.MainActivity;
@@ -33,12 +34,12 @@ import javax.inject.Inject;
  * Created by amitshekhar on 08/07/17.
  */
 
-public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginNavigator {
+public class LoginActivity extends BaseActivity<ActivityAccountBinding, LoginViewModel> implements LoginNavigator {
 
     @Inject
     ViewModelProviderFactory factory;
     private LoginViewModel mLoginViewModel;
-    private ActivityLoginBinding mActivityLoginBinding;
+    private ActivityAccountBinding mActivityLoginBinding;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, LoginActivity.class);
@@ -67,8 +68,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void login() {
-        String email = mActivityLoginBinding.etEmail.getText().toString();
-        String password = mActivityLoginBinding.etPassword.getText().toString();
+        String email = mActivityLoginBinding.editText4.getText().toString();
+        String password = mActivityLoginBinding.editText7.getText().toString();
         if (mLoginViewModel.isEmailAndPasswordValid(email, password)) {
             hideKeyboard();
             mLoginViewModel.login(email, password);
